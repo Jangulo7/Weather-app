@@ -8,24 +8,36 @@ body{
     grid-auto-rows: minmax(150px, auto);
     /* grid-template-columns:  */
     height:100vh;
-    background: #f23557;
-    color: #f0d43a;
-    justify-content: center;
+    background: #891337;
+    color: whitesmoke;
+    justify-content: left;
+    padding: 3em 3em;
     grid-gap: 1em;
     font-size: 20px;
     font-family: 'Oswald', sans-serif;
 }
 
 .holder{
+    display: grid;
+    justify-content: space-between;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    font-weight: bold;
+    font-size: xx-large;
 
 }
 
 .entry{
-    background: rgba(59, 74, 107, .4);
+    display: grid;
+    font-size: 20px;
+    background: rgba(131, 132, 133, 0.4);
+    border-radius: 4px;
+    padding: 15px 30px;
+    margin-top: 30px;
 }
 
 #entryHolder{
-
+    display: grid;
 }
 
 #date{
@@ -41,7 +53,8 @@ body{
 }
 
 .headline {
-
+    font-size: xxx-large;
+    font-weight: bold;
 }
 .title{
 
@@ -49,40 +62,53 @@ body{
 
 /*  Basic Styling To Override Default For Basic HTML Elements */
 label{
-    display:block;
+    display: grid;
     font-size: 27px;
 }
 
 input{
-    display:block;
+    display: grid;
     height: 60px;
-    width: 320px;
-    background:#22b2da;
-    color: #f0d43a;
+    width: 380px;
+    background:rgba(131, 132, 133, 0.4);
+    color: whitesmoke;
     font-size: 20px;
     font-family: 'Oswald', sans-serif;
     border: none;
+    border-radius: 4px;
+    padding: 15px 15px;
 }
 
 button{
+    display: grid;
     width: 400px;
-    height: 100px;
-    background: #3b4a6b;
-    color: #f0d43a;
+    height: 80px;
+    background: #582436;
+    color: whitesmoke;
     font-size: 26px;
     font-family: 'Oswald', sans-serif;
     border: none;
-    box-shadow: 2px 4px 5px #444;
+    box-shadow: 2px 4px 5px #ddbdbd;
+    border-radius: 4px;
+    justify-content: center;
 }
+
 h1{
     font-size: 36px;
 }
 
 textarea{
-    background:#22b2da;
-    color: #f0d43a;
+    display: grid;
+    width: 400px;
+    height: 100px;
+    background:rgba(131, 132, 133, 0.4);
+    color: #312626;
     font-size: 20px;
     font-family: 'Oswald', sans-serif;
+    box-sizing: border-box;
+    border-radius: 4px;
+    padding: 15px 15px;
+    margin-bottom: 20px;
 }
 /* Reset style for HTML element on active to have no border*/
 input:focus,
@@ -93,19 +119,51 @@ button:focus {
 }
 /* Style for Placeholder Text*/
 ::placeholder { /* Firefox, Chrome, Opera */ 
-    color: #f0d43a; 
+    color: whitesmoke; 
     font-family: 'Oswald', sans-serif;
+    padding: 15px 15px;
 
 } 
   
 :-ms-input-placeholder { /* Internet Explorer 10-11 */ 
-    color: #f0d43a; 
+    color: whitesmoke; 
     font-family: 'Oswald', sans-serif;
+    padding: 15px 15px;
 
 } 
   
 ::-ms-input-placeholder { /* Microsoft Edge */ 
-    color: #f0d43a; 
+    color: whitesmoke; 
     font-family: 'Oswald', sans-serif;
-
+    padding: 15px 15px;
 } 
+
+.feel {
+    display: grid;
+    justify-content: space-between;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    margin-bottom: 10px;
+}
+
+/* Footer Styles*/    
+.page__footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap:15px;
+    background-color: #312626;
+    color: whitesmoke;
+    padding: 50px 50px;
+}
+
+.page__footer__social {
+        display: flex;
+        flex-direction: row;
+        gap: 20px;
+        justify-content: space-between;
+}
+
+.img {
+    color: whitesmoke;
+}
