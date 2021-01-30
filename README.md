@@ -3,6 +3,7 @@
 ## Table of Contents
 
 * [Objective](#objective)
+* [Dependencies](#dependencies)
 * [References](#references)
 * [Disclaimer](#disclaimer)
 * [Trademarks](#trademarks)
@@ -15,6 +16,14 @@ The main objective of this project is to create an asynchronous web app that use
 2. To check project's style, open `style.css`
 
 3. To check project's functionality, open `app.js` and `server.js`
+
+## Dependencies
+
+This project is using node.js v14.15.4 with the following dependencies:
+
++ express@4.17.1
++ body-parser@1.19.0
++ cors@2.8.5
 
 ## References
 
