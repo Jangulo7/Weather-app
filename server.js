@@ -31,7 +31,7 @@ app.use(cors());
 app.use(express.static('website'));
 
 // Setup Server
-const port = 3000;
+const port = 5500;
 // Spin up the server
 const server = app.listen(port, ()=>{console.log(`running on localhost: ${port}`)})
 
