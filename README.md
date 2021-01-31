@@ -19,11 +19,24 @@ The main objective of this project is to create an asynchronous web app that use
 
 ## Dependencies
 
+This project is using Node Package Manager (NPM). Therefore, if not already, download and install the Node.js. 
+Windows users must run the executable as an Administrator, and restart the computer after installation. 
+After successfully installing the Node, verify the installation as shown below:
+
+`node -v`
+`npm -v`
+
 This project is using node.js v14.15.4 with the following dependencies:
 
 + express@4.17.1
 + body-parser@1.19.0
 + cors@2.8.5
+
+Install these dependencies as shown below:
+
+`npm install express`
+`npm install body-parser`
+`npm install cors`
 
 ## References
 
