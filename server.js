@@ -9,7 +9,7 @@ const app = express();
 
 /* Dependencies */
 const bodyParser = require('body-parser');
-
+/* Middleware */
 // Here we are configuring express to use body-parser as middle-ware.
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
@@ -30,16 +30,12 @@ app.use(cors());
 // Initialize the main project folder
 app.use(express.static('website'));
 
-const port = 3000;
-
-const server = app.listen(port, listening);
-
-function listening(){ console.log("server running"); console.log(`running on localhost: {$port}`); }
-// Same as above as an arrow function
-//const server = app.listen(port, ()=>{console.log(`running on localhost: ${port}`)})
-
-
 // Setup Server
+const port = 3000;
+// Spin up the server
+const server = app.listen(port, ()=>{console.log(`running on localhost: ${port}`)})
+
+/*
 // POST /login gets urlencoded bodies
 app.post('/login', urlencodedParser, function (req, res) {
     res.send('welcome, ' + req.body.username)
@@ -48,3 +44,4 @@ app.post('/login', urlencodedParser, function (req, res) {
 // POST /api/users gets JSON bodies (create user in req.body)
 app.post('/api/users', jsonParser, function (req, res) {
 })
+*/
