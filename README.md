@@ -24,6 +24,7 @@ Windows users must run the executable as an Administrator, and restart the compu
 After successfully installing the Node, verify the installation as shown below:
 
 `node -v`
+
 `npm -v`
 
 This project is using node.js v14.15.4 with the following dependencies:
@@ -35,7 +36,9 @@ This project is using node.js v14.15.4 with the following dependencies:
 Install these dependencies as shown below:
 
 `npm install express`
+
 `npm install body-parser`
+
 `npm install cors`
 
 ## References
