@@ -15,13 +15,13 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 // Parse various different custom JSON types as JSON
-app.use(bodyParser.json({ type: 'application/*+json' }))
+//app.use(bodyParser.json({ type: 'application/*+json' }))
 
 // Parse some custom thing into a Buffer
-app.use(bodyParser.raw({ type: 'application/vnd.custom-type' }))
+//app.use(bodyParser.raw({ type: 'application/vnd.custom-type' }))
 
 // Parse an HTML body into a string
-app.use(bodyParser.text({ type: 'text/html' }))
+//app.use(bodyParser.text({ type: 'text/html' }))
 
 // Cors for cross origin allowance
 const cors = require('cors');
@@ -35,12 +35,24 @@ const port = 3000;
 // Spin up the server
 const server = app.listen(port, ()=>{console.log(`running on localhost: ${port}`)})
 
-// GET Request
-// Respond with "hello world" when a GET request is made to the homepage
+// GET method route
+// Respond with object projectData when a GET request is made to the homepage
 app.get('/', function (req, res) {
-    res.send('Welcome to Jangulo Weather App');
-})
+    res.send(projectData);
+});
+/* Same as above with arrow function
+app.get('/', (req, res)=> {
+    res.send(projectData);
+});
+*/
 
+// POST method route
+const data = [];
+
+app.post('/add', function (request, response) {
+    let data = request.body;
+    console.log(data);
+});
 
 /*
 // POST /login gets urlencoded bodies
