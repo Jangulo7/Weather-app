@@ -31,9 +31,16 @@ app.use(cors());
 app.use(express.static('website'));
 
 // Setup Server
-const port = 5500;
+const port = 3000;
 // Spin up the server
 const server = app.listen(port, ()=>{console.log(`running on localhost: ${port}`)})
+
+// GET Request
+// Respond with "hello world" when a GET request is made to the homepage
+app.get('/', function (req, res) {
+    res.send('Welcome to Jangulo Weather App');
+})
+
 
 /*
 // POST /login gets urlencoded bodies
