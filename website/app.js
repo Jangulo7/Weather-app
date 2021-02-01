@@ -38,23 +38,36 @@ postData('/add', { temperature: 20 })
 
 // Make a GET request to the OpenWeatherMap API
 let baseURL = 'api.openweathermap.org/data/2.5/weather?zip='
-const apiKey = '0b86bfe901e0ec5f035cf65a95dba5d8';
+const apiKey = ',us&appid=b0867b1fdb6a7b858e1f6998d7e84d74';
 
 document.getElementById('generate').addEventListener('click', performAction);
 
 function performAction(e){
+  e.preventDefault();
   const newWeather =  document.getElementById('zip').value;
-  getWeather(baseURL,newWeather, apiKey)
+  getWeather(baseURL, newWeather, apiKey)
 }
 
-const getWeather = async (baseURL, animal, key)=>{
-  const res = await fetch(baseURL+animal+key)
+const getWeather = async (baseURL, zip, key)=>{
+  const res = await fetch(baseURL+zip+key)
   try {
     const data = await res.json();
     console.log(data)
     return data;
   }  catch(error) {
     console.log("There was an error", error);
+  }
+}
+
+// GET request
+const retrieveData = async (url='') =>{ 
+  const request = await fetch(url);
+  try {
+  // Transform into JSON
+  const allData = await request.json()
+  }
+  catch(error) {
+    console.log("error", error);
     // appropriately handle the error
   }
 }
