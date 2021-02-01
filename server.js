@@ -37,8 +37,8 @@ const server = app.listen(port, ()=>{console.log(`running on localhost: ${port}`
 
 // GET method route
 // Respond with object projectData when a GET request is made to the homepage
-app.get('/', function (req, res) {
-    res.send(projectData);
+app.get('/', function (request, response) {
+    response.send(projectData);
 });
 /* Same as above with arrow function
 app.get('/', (req, res)=> {

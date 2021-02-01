@@ -34,4 +34,27 @@ const postData = async ( url = '', data = {})=>{
 postData('/add', { temperature: 20 })
   .then(data => {
     console.log(data); // JSON data parsed by `data.json()` call
-  });
+});
+
+// Make a GET request to the OpenWeatherMap API
+let baseURL = 'http://api.openweathermap.org/data/2.5/forecast?id=524901&appid='
+const apiKey = '0b86bfe901e0ec5f035cf65a95dba5d8';
+
+document.getElementById('generate').addEventListener('click', performAction);
+
+function performAction(e){
+  const newWeather =  document.getElementById('temp').value;
+  getWeather(baseURL,newWeather, apiKey)
+}
+
+const getWeather = async (baseURL, animal, key)=>{
+  const res = await fetch(baseURL+animal+key)
+  try {
+    const data = await res.json();
+    console.log(data)
+    return data;
+  }  catch(error) {
+    console.log("There was an error", error);
+    // appropriately handle the error
+  }
+}
