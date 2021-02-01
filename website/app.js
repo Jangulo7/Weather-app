@@ -7,13 +7,17 @@ let newDate = d.getMonth()+'.'+ d.getDate()+'.'+ d.getFullYear();
 // Make a POST request to our route
 /* Function to POST data */
 const postData = async ( url = '', data = {})=>{
-  console.log(data);
+    console.log(data);
     const response = await fetch(url, {
-    method: 'POST', 
+    method: 'POST',
+    mode: 'cors',
+    cache: 'no-cache',
     credentials: 'same-origin',
     headers: {
         'Content-Type': 'application/json',
     },
+    redirect: 'follow', // manual, *follow, error
+    referrerPolicy: 'no-referrer', // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
    // Body data type must match "Content-Type" header        
     body: JSON.stringify(data), 
   });
@@ -27,4 +31,7 @@ const postData = async ( url = '', data = {})=>{
     }
 }
 
-postData('/add', {answer:42});
+postData('/add', { temperature: 20 })
+  .then(data => {
+    console.log(data); // JSON data parsed by `data.json()` call
+  });
