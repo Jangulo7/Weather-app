@@ -16,9 +16,7 @@ const postData = async ( url = '', data = {})=>{
     headers: {
         'Content-Type': 'application/json',
     },
-    redirect: 'follow', // manual, *follow, error
-    referrerPolicy: 'no-referrer', // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
-   // Body data type must match "Content-Type" header        
+    // Body data type must match "Content-Type" header        
     body: JSON.stringify(data), 
   });
 
@@ -37,25 +35,26 @@ postData('/add', { temperature: 20 })
 });
 
 // Make a GET request to the OpenWeatherMap API
-let baseURL = 'api.openweathermap.org/data/2.5/weather?zip='
-const apiKey = ',us&appid=b0867b1fdb6a7b858e1f6998d7e84d74';
+let baseURL = 'http://api.openweathermap.org/data/2.5/weather?'
+const apiKey = 'b0867b1fdb6a7b858e1f6998d7e84d74';
 
 document.getElementById('generate').addEventListener('click', performAction);
 
-function performAction(e){
-  e.preventDefault();
+function performAction(){
+  //e.preventDefault();
   const newWeather =  document.getElementById('zip').value;
   getWeather(baseURL, newWeather, apiKey)
 }
 
 const getWeather = async (baseURL, zip, key)=>{
-  const res = await fetch(baseURL+zip+key)
+  let response = await fetch(baseURL+'zip='+zip+',us&appid='+key);
   try {
-    const data = await res.json();
-    console.log(data)
+    const data = await response.json();
+    console.log(data);
     return data;
   }  catch(error) {
     console.log("There was an error", error);
+    console.log(response);
   }
 }
 
@@ -67,7 +66,8 @@ const retrieveData = async (url='') =>{
   const allData = await request.json()
   }
   catch(error) {
-    console.log("error", error);
+    console.log("This is an error", error);
     // appropriately handle the error
   }
 }
+

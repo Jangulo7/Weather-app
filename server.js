@@ -15,7 +15,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 // Parse various different custom JSON types as JSON
-//app.use(bodyParser.json({ type: 'application/*+json' }))
+app.use(bodyParser.json({ type: 'application/*+json' }))
 
 // Parse some custom thing into a Buffer
 //app.use(bodyParser.raw({ type: 'application/vnd.custom-type' }))
@@ -27,40 +27,34 @@ app.use(bodyParser.json());
 const cors = require('cors');
 app.use(cors());
 
+// Path
+const path = require('path');
+
 // Initialize the main project folder
 app.use(express.static('website'));
 
 // Setup Server
-const port = 3000;
+const port = 3555;
 // Spin up the server
 const server = app.listen(port, ()=>{console.log(`running on localhost: ${port}`)})
 
 // GET method route
-// Respond with object projectData when a GET request is made to the homepage
+ // Respond with object projectData when a GET request is made to the homepage
 app.get('/', function (request, response) {
-    response.send(projectData);
+    response.send(JSON.stringify(projectData));
+    //response.send('HELLO WORLD');
 });
-/* Same as above with arrow function
+
+/*
+// Same as above with arrow function
 app.get('/', (req, res)=> {
     res.send(projectData);
 });
 */
 
 // POST method route
-const data = [];
+const data = {};
 
 app.post('/add', function (request, response) {
     let data = request.body;
-    console.log(data);
 });
-
-/*
-// POST /login gets urlencoded bodies
-app.post('/login', urlencodedParser, function (req, res) {
-    res.send('welcome, ' + req.body.username)
-})
-  
-// POST /api/users gets JSON bodies (create user in req.body)
-app.post('/api/users', jsonParser, function (req, res) {
-})
-*/
