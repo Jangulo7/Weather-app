@@ -22,7 +22,7 @@ const cors = require('cors');
 app.use(cors());
 
 // App path
-const appPath = requiere("appPath");
+//const appPath = require("appPath");
 
 // Initialize the main project folder
 app.use(express.static('website'));
