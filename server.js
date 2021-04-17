@@ -15,36 +15,29 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 // Parse various different custom JSON types as JSON
-app.use(bodyParser.json({ type: 'application/*+json' }))
-
-// Parse some custom thing into a Buffer
-//app.use(bodyParser.raw({ type: 'application/vnd.custom-type' }))
-
-// Parse an HTML body into a string
-//app.use(bodyParser.text({ type: 'text/html' }))
+app.use(bodyParser.json({ type: 'application/*+json' }));
 
 // Cors for cross origin allowance
 const cors = require('cors');
 app.use(cors());
 
-// Path
-const path = require('path');
+// App path
+const appPath = requiere("appPath");
 
 // Initialize the main project folder
 app.use(express.static('website'));
+//app.use(express.json());
 
 // Setup Server
 const port = 3555;
 // Spin up the server
-const server = app.listen(port, ()=>{console.log(`running on localhost: ${port}`)})
+const server = app.listen(port, ()=>{console.log(`running on localhost: ${port}`)});
 
 // GET method route
  // Respond with object projectData when a GET request is made to the homepage
-app.get('/', function (request, response) {
-    response.send(JSON.stringify(projectData));
-    //response.send('HELLO WORLD');
+app.get('/', function (req, res) {
+    res.send(projectData);
 });
-
 /*
 // Same as above with arrow function
 app.get('/', (req, res)=> {
@@ -53,8 +46,12 @@ app.get('/', (req, res)=> {
 */
 
 // POST method route
-const data = {};
-
-app.post('/add', function (request, response) {
+app.post('/add', function (req, res) {
     let data = request.body;
+    projectData['content']=data.content;
+    projectData['date']=data.date;
+    projectData['temp']=data.temp;
+    res.send(projectData);
 });
+
+
