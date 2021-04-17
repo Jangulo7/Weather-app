@@ -10,12 +10,15 @@ const apiKey = 'b0867b1fdb6a7b858e1f6998d7e84d74';
 
 document.getElementById('generate').addEventListener('click', performAction);
 
+// PerformAction function
 function performAction(){
-  const feel =  document.getElementById('feelings').value;
   const newWeather =  document.getElementById('zip').value;
-  getWeather(baseURL, newWeather, apiKey);
+  const feelings = document.getElementById('feelings').value;
+  getWeather(baseURL, newWeather, apiKey)
   .then(function(data){
-    postData('/data', {date:newDate, content: feel, temp: data.main.temp})
+    console.log(data)
+    postData('/data', {date:newDate, content: feelings, temp: data.main.temp})
+
     // Calling the Async function
     updateUI()
   });
@@ -25,7 +28,6 @@ const getWeather = async (baseURL, zip, key)=>{
   let response = await fetch(baseURL+'zip='+zip+',us&appid='+key);
   try {
     const data = await response.json();
-    //console.log(data);
     return data;
   }  catch(error) {
     console.log("There was an error", error);
