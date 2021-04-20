@@ -17,13 +17,12 @@ body {
     font-family: 'Oswald', sans-serif;
 }
 
-.holder {
-    display: grid;
-    justify-content: space-between;
-    padding-top: 20px;
-    padding-bottom: 20px;
+.holder .entry {
+    justify-content: space-evenly;
+    margin: 10px;
     font-weight: bold;
-    font-size: xx-large;
+    font-size: large;
+    height: auto;
 }
 
 .myInput {
@@ -33,15 +32,21 @@ body {
 
 .entry {
     display: grid;
-    font-size: 20px;
+    justify-content: space-between;
+    font-size: 18px;
     background: rgba(131, 132, 133, 0.4);
     border-radius: 4px;
-    padding: 15px 30px;
-    margin-top: 30px;
+    padding: 5px 25px;
+    margin-top: 20px;
+    margin-bottom: 5px;
+    height: auto;
 }
 
 #entryHolder {
     display: grid;
+    padding: 5px 10px;
+    height: 100px;
+    font-size: large;
 }
 
 #date {
@@ -74,9 +79,9 @@ label {
 
 input {
     display: grid;
-    height: 60px;
+    height: 50px;
     width: 380px;
-    background:rgba(131, 132, 133, 0.4);
+    background:rgba(123, 130, 136, 0.4);
     color: whitesmoke;
     font-size: 20px;
     font-family: 'Oswald', sans-serif;
@@ -88,7 +93,7 @@ input {
 button {
     display: grid;
     width: 400px;
-    height: 80px;
+    height: 60px;
     background: #582436;
     color: whitesmoke;
     font-size: 26px;
@@ -106,15 +111,15 @@ h1 {
 textarea {
     display: grid;
     width: 400px;
-    height: 100px;
+    height: 90px;
     background:rgba(131, 132, 133, 0.4);
     color: #312626;
     font-size: 20px;
     font-family: 'Oswald', sans-serif;
     box-sizing: border-box;
     border-radius: 4px;
-    padding: 15px 15px;
-    margin-bottom: 20px;
+    padding: 10px 10px;
+    margin-bottom: 10px;
 }
 
 /* Reset style for HTML element on active to have no border*/
@@ -146,10 +151,10 @@ button:focus {
 
 .feel {
     display: grid;
-    justify-content: space-between;
-    padding-top: 20px;
-    padding-bottom: 20px;
-    margin-bottom: 10px;
+    justify-content: start;
+    padding-top: 10px;
+    padding-bottom: 5px;
+    margin-bottom: 5px;
     color: whitesmoke;
 }
 

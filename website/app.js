@@ -42,9 +42,9 @@ const updateUI = async () => {
   try {
     const allMyData = await request.json();
     //console.log('interfase' + allMyData);
-    document.getElementById('date').innerHTML = allMyData.date;
-    document.getElementById('temp').innerHTML = allMyData.temp;
-    document.getElementById('content').innerHTML = allMyData.content;
+    document.getElementById('date').innerHTML = 'The date is '+allMyData.date;
+    document.getElementById('temp').innerHTML = 'The temperature is '+allMyData.temp+' °F';
+    document.getElementById('content').innerHTML = 'And I feel '+allMyData.content;
   } catch(error) {
     console.log('There was an error', error)
   }
