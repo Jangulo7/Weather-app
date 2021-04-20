@@ -8,24 +8,25 @@ let newDate = d.getMonth()+'.'+ d.getDate()+'.'+ d.getFullYear();
 let baseURL = 'http://api.openweathermap.org/data/2.5/weather?'
 const apiKey = 'b0867b1fdb6a7b858e1f6998d7e84d74';
 
+// Event listener
 document.getElementById('generate').addEventListener('click', performAction);
 
-// PerformAction function
+// Main function - PerformAction
 function performAction(){
   const newWeather =  document.getElementById('zip').value;
   const feelings = document.getElementById('feelings').value;
   getWeather(baseURL, newWeather, apiKey)
   .then(function(data){
-    console.log(data)
-    postData('/data', {date:newDate, content: feelings, temp: data.main.temp})
+    postData('/add', {date:newDate, content:feelings, temp:data.main.temp})
 
     // Calling the Async function
     updateUI()
   });
 };
 
+// getWeater function
 const getWeather = async (baseURL, zip, key)=>{
-  let response = await fetch(baseURL+'zip='+zip+',us&appid='+key);
+  let response = await fetch(baseURL+'zip='+zip+',us&appid='+key+'&units=imperial');
   try {
     const data = await response.json();
     return data;
@@ -34,15 +35,16 @@ const getWeather = async (baseURL, zip, key)=>{
   }
 }
 
-// Async Function
+// Async Function - Update UI
 const updateUI = async () => {
-  const req = await fetch('/')
+  const request = await fetch('/all');
+  console.log(request);
   try {
-    const allMyData = await HTMLTableRowElement.json()
-    console.log(allMyData);
-    document.getElementById('date').innerHTML = allMyData[0].date;
-    document.getElementById('content').innerHTML = allMyData[0].content;
-    document.getElementById('temp').innerHTML = allMyData[0].temp;
+    const allMyData = await request.json();
+    //console.log('interfase' + allMyData);
+    document.getElementById('date').innerHTML = allMyData.date;
+    document.getElementById('temp').innerHTML = allMyData.temp;
+    document.getElementById('content').innerHTML = allMyData.content;
   } catch(error) {
     console.log('There was an error', error)
   }
@@ -54,7 +56,6 @@ const postData = async ( url = '', data = {})=>{
   const response = await fetch(url, {
   method: 'POST',
   mode: 'cors',
-  cache: 'no-cache',
   credentials: 'same-origin',
   headers: {
       'Content-Type': 'application/json',
